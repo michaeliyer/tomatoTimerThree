@@ -76,7 +76,7 @@ function decrementSeconds() {
 function createFragments() {
   tomatoArea.innerHTML = "";
   const fragmentSize = 0.5;
-  const numFragments = 700;
+  const numFragments = 750;
   const radius = 12;
 
   // Calculate how many fragments we need for each feature
