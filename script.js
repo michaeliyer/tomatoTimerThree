@@ -98,16 +98,16 @@ function createFragments() {
     const xPos = Math.cos(angle) * distanceFromCenter;
     const yPos = Math.sin(angle) * distanceFromCenter;
 
-    // Wider starting positions for more dramatic effect
+    // Closer starting positions for more immediate visibility
     const startAngle = Math.random() * Math.PI * 2;
-    const startDistance = 45 + Math.random() * 30; // Even wider starting area
+    const startDistance = 25 + Math.random() * 15; // Even closer starting area
     const randomX = Math.cos(startAngle) * startDistance + "rem";
     const randomY = Math.sin(startAngle) * startDistance + "rem";
 
     // More gradual mid-point positions
     const midAngle = (startAngle + angle) / 2 + (Math.random() - 0.5) * Math.PI;
     const midDistance =
-      (startDistance + distanceFromCenter) / 2 + (Math.random() - 0.5) * 20;
+      (startDistance + distanceFromCenter) / 2 + (Math.random() - 0.5) * 8;
     const midX = Math.cos(midAngle) * midDistance + "rem";
     const midY = Math.sin(midAngle) * midDistance + "rem";
 
