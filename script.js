@@ -76,7 +76,7 @@ function decrementSeconds() {
 function createFragments() {
   tomatoArea.innerHTML = "";
   const fragmentSize = 0.5;
-  const numFragments = 750;
+  const numFragments = 700;
   const radius = 12;
 
   // Calculate how many fragments we need for each feature
@@ -100,14 +100,14 @@ function createFragments() {
 
     // Wider starting positions for more dramatic effect
     const startAngle = Math.random() * Math.PI * 2;
-    const startDistance = 40 + Math.random() * 25;
+    const startDistance = 45 + Math.random() * 30; // Even wider starting area
     const randomX = Math.cos(startAngle) * startDistance + "rem";
     const randomY = Math.sin(startAngle) * startDistance + "rem";
 
     // More gradual mid-point positions
     const midAngle = (startAngle + angle) / 2 + (Math.random() - 0.5) * Math.PI;
     const midDistance =
-      (startDistance + distanceFromCenter) / 2 + (Math.random() - 0.5) * 15;
+      (startDistance + distanceFromCenter) / 2 + (Math.random() - 0.5) * 20;
     const midX = Math.cos(midAngle) * midDistance + "rem";
     const midY = Math.sin(midAngle) * midDistance + "rem";
 
@@ -193,7 +193,7 @@ function createFragments() {
     tomatoArea.appendChild(fragment);
   }
 
-  // Start animations immediately
+  // Start animations immediately with precise timing
   requestAnimationFrame(() => {
     fragments.forEach((frag) => {
       frag.style.animation = `moveToSmiley ${timeLeft}s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
@@ -214,19 +214,12 @@ function startTimer() {
 
   if (timeLeft > 0 && timeLeft <= 300) {
     isRunning = true;
-
-    if (pausedTimeRemaining !== null) {
-      startTime = Date.now() - (timeLeft * 1000 - pausedTimeRemaining);
-      pausedTimeRemaining = null;
-    } else {
-      startTime = Date.now();
-    }
+    startTime = Date.now();
 
     const smiley = document.getElementById("smiley");
     smiley.style.display = "none";
 
     createFragments();
-    animateFragments();
     updateTimer();
   }
 }
@@ -246,6 +239,7 @@ function updateTimer() {
     fragments.forEach((frag) => {
       const computedStyle = window.getComputedStyle(frag);
       frag.style.transform = computedStyle.transform;
+      frag.style.animation = "none";
     });
 
     const smiley = document.getElementById("smiley");

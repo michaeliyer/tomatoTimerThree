@@ -43,15 +43,15 @@ body {
       rotate(var(--random-rotation));
     opacity: 0.2;
   }
-  20% {
+  5% {
     transform: translate(var(--mid-x), var(--mid-y)) scale(0.5)
       rotate(var(--mid-rotation));
     opacity: 0.5;
   }
-  70% {
-    transform: translate(var(--final-x), var(--final-y)) scale(0.9)
-      rotate(calc(var(--mid-rotation) * 0.1));
-    opacity: 0.9;
+  95% {
+    transform: translate(var(--final-x), var(--final-y)) scale(0.99)
+      rotate(calc(var(--mid-rotation) * 0.01));
+    opacity: 0.99;
   }
   100% {
     transform: translate(var(--final-x), var(--final-y)) scale(1) rotate(0deg);
