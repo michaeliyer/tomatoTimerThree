@@ -43,7 +43,7 @@ function updateDisplay() {
 
 function incrementMinutes() {
   const currentValue = parseInt(minutesInput.value) || 0;
-  if (currentValue < 5) {
+  if (currentValue < 60) {
     minutesInput.value = currentValue + 1;
     updateDisplay();
   }
@@ -212,7 +212,7 @@ function startTimer() {
   const seconds = parseInt(secondsInput.value) || 0;
   timeLeft = minutes * 60 + seconds;
 
-  if (timeLeft > 0 && timeLeft <= 300) {
+  if (timeLeft > 0 && timeLeft <= 3600) {
     isRunning = true;
     startTime = Date.now();
 
